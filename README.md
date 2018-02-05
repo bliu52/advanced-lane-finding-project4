@@ -53,12 +53,8 @@ After establishing a pipeline to process still images, the final step was to exp
 |-------------|-------------|
 |![Final Result Gif](./images/project_vid.gif)|![Challenge Video](./images/challenge.gif)|
 
-#### Discussion
+## Points of failure & Areas of Improvement
+The pipeline seems to fail for the harder challenge video. This video has sharper turns and at very short intervals.I think what I could improve is:
 
-##### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-
-In this project I followed the recomendations given by Udacity. The trickiest part was to create a reusable python module. It was also hard to implement sliding window technique and its visualization.
-
-The implementation performs well on the project video and not so well on other videos with worse environment conditions. The pipeline will likely fail in the situations when the road has cracks coming alongside the lane lines, such as in challenge video. Sanity checks and recovery are helping here---eventually the lanes are detected correctly, but there are noticable sequence of frames on the chanllenge video, when lines are detected completely wrong. Just for the interest of the reader, here is lane detection on chalenge video: [YouTube](https://youtu.be/s0q61dsZPHM). 
-
-Smothing and failure recovery should be more sophisticated to make `AdvancedLaneFinder` work with videos capturing worse environment conditions. Lane detection can be improved with the follwoing approach: obtain lane pixels by color. The rationale behind it is that lanes in this project are either yellow or white. 
+1. Take a better perspective transform: choose a smaller section to take the transform since this video has sharper turns and the lenght of a lane is shorter than the previous videos.
+2. Average over a smaller number of frames. Right now I am averaging over 12 frames. This fails for the harder challenge video since the shape and direction of lanes changes quite fast.
