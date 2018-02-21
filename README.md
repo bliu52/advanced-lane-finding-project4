@@ -54,10 +54,6 @@ The final step in processing the images was to plot the polynomials on to the wa
 After establishing a pipeline to process still images, the final step was to expand the pipeline to process videos frame-by-frame, to simulate what it would be like to process an image stream in real time on an actual vehicle. 
 
 
-|Project Video|Challenge Video|
-|-------------|-------------|
-|![Final Result Gif](./images/project_vid.gif)|![Challenge Video](./images/challenge.gif)|
-
 ## Points of failure & Areas of Improvement
 The pipeline seems to fail for the harder challenge video. This video has sharper turns and at very short intervals.I think what I could improve is:
 
